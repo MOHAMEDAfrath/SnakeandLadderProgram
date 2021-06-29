@@ -13,6 +13,7 @@ namespace SnakeandLadderProgram
     /// </summary>
     class Program
     {
+        //Initializing Variables
         public const int START_POSITION = 0;
         public const int BOARD_SIZE = 100;
         public static int player = 0;
@@ -23,7 +24,9 @@ namespace SnakeandLadderProgram
         {
             
             Console.WriteLine("Welcome to Snake Ladder Program!");
+            //Calling static function
             Program.PlayerOne();
+            //Returning who won
             if (wining == 1)
             {
                 Console.WriteLine("***************PLAYER 1 WINS***************");
@@ -37,6 +40,7 @@ namespace SnakeandLadderProgram
                 Console.WriteLine("No one won");
             }
         }
+        //static function for player1
         public static void PlayerOne()
         {
             
@@ -50,6 +54,7 @@ namespace SnakeandLadderProgram
 
 
         }
+        // static function for player2
         public static void PlayerTwo()
         {
             while (player2Position != BOARD_SIZE && player == 1)
@@ -61,6 +66,7 @@ namespace SnakeandLadderProgram
             }
 
         }
+        //static function for move options
         public static void Options(int diceValue)
         {
             int samplePosition = player1Position;
@@ -68,6 +74,7 @@ namespace SnakeandLadderProgram
             int option = random.Next(1, 4);
             switch (option)
             {
+                //option for No play
                 case 1:
                     if (player == 0)
                     {
@@ -100,7 +107,7 @@ namespace SnakeandLadderProgram
                         }
                     }
                     break;
-
+                //to check Ladder and change position
                 case 2:
                     if (player == 0)
                     {
@@ -165,7 +172,7 @@ namespace SnakeandLadderProgram
                     
 
                         break;
-                    
+                 //to check snake bite   
                 case 3:
                     if (player == 0)
                     {
@@ -204,6 +211,7 @@ namespace SnakeandLadderProgram
                    
             }
         }
+        //static function for rolling dice
         public static void RollDice()
         {
             Random random = new Random();
