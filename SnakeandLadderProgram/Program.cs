@@ -6,7 +6,8 @@ namespace SnakeandLadderProgram
     /// UC1: Initializing Player and start position.
     /// UC2: Using Random to give dice values.
     /// UC3: To perform player move actions using switch case.
-    /// UC4 & UC5: Repeat the steps until player reaches 100 and not less than 0.
+    /// UC4: Repeat the steps until player reaches 100 and not less than 0.
+    /// UC5: Avoiding negative positioning
     /// </summary>
     class Program
     {
