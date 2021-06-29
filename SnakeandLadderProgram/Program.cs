@@ -22,13 +22,15 @@ namespace SnakeandLadderProgram
         }
         public static void PlayerOne()
         {
-
+            int diceRolledP1 = 0;
             while (player1Position != BOARD_SIZE)
             {
-
+                diceRolledP1 += 1;
                 Program.RollDice();
+
             }
-            
+            Console.WriteLine("No of Times the Dice rolled By P1: " + diceRolledP1);
+
         }
         public static void Options(int diceValue)
         {
