@@ -6,6 +6,7 @@ namespace SnakeandLadderProgram
     /// UC1: Initializing Player and start position.
     /// UC2: Using Random to give dice values.
     /// UC3: To perform player move actions using switch case.
+    /// UC4 & UC5: Repeat the steps until player reaches 100 and not less than 0.
     /// </summary>
     class Program
     {
@@ -20,10 +21,17 @@ namespace SnakeandLadderProgram
         }
         public static void PlayerOne()
         {
-            Program.RollDice();
+
+            while (player1Position != BOARD_SIZE)
+            {
+
+                Program.RollDice();
+            }
+            
         }
         public static void Options(int diceValue)
         {
+            int samplePosition = player1Position;
             Random random = new Random();
             int option = random.Next(1, 4);
             switch (option)
@@ -33,13 +41,27 @@ namespace SnakeandLadderProgram
                     break;
 
                 case 2:
-                   Console.WriteLine("Ladder and current position is : " + (player1Position += diceValue));
-                   break;
+                    if (player1Position + diceValue <= BOARD_SIZE)
+                    {
+                        Console.WriteLine("Ladder and current position is : " + (player1Position += diceValue));
+                    }
+                    else
+                    {
+                        player1Position = samplePosition;
+                    }
+
+                    break;
                     
                 case 3:
-                   
-                    player1Position = 0;
-                    Console.WriteLine("Snake Bite pushed down to : " + (player1Position -= diceValue));
+                    if ((player1Position - diceValue) < 0)
+                    {
+                        player1Position = 0;
+                        Console.WriteLine("Snake Bite pushed down to: " + player1Position);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Snake Bite pushed down to : " + (player1Position -= diceValue));
+                    }
                     break;
                    
             }
